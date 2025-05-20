@@ -1,6 +1,6 @@
 // import mongoose from "mongoose";
-// import { DB_NAME } from "./constants";
 // import express from "express";
+// import { DB_NAME } from "./constants.js";
 
 // const app = express();
 
@@ -10,6 +10,10 @@
 //      app.on("error",(e)=>{
 //        console.log("Error: ",e);
 //        throw e
+//      })
+
+//      app.get('/u',(req,res)=>{
+//         res.send("hi")
 //      })
 
 //      app.listen(process.env.PORT, ()=>{
@@ -27,6 +31,7 @@
 
 import dotenv from 'dotenv';
 import connectDB from "./DB/index.js";
+import app from './app.js';
 
 dotenv.config({
     path:'./env'
@@ -38,6 +43,11 @@ connectDB()
         console.log("Error: ",e);
         throw e
     })
+    
+    // app.get('/u',(req,res)=>{
+    //     console.log("Get is used")
+    //             res.send("hi")
+    //          })
     app.listen(process.env.PORT || 8000, ()=>{
         console.log(`Server is running at port: ${process.env.PORT}`);
         
